@@ -1,0 +1,51 @@
+
+
+
+{
+  "success": true,
+  "products": [
+    {
+      "productId": "1",
+      "name": "Bolsa Clássica de Couro",
+      "description": "Bolsa clássica de couro genuíno",
+      "imageUrl": "/img/BolsaCouro.png",
+      "price": 395
+    },
+    {
+      "productId": "2",
+      "name": "Mochila Heritage",
+      "description": "Mochila Heritage",
+      "imageUrl": "/img/Mochila-Heritage.png",
+      "price": 485
+    },
+    {
+      "productId": "3",
+      "name": "Dufle de Viagem",
+      "description": "Dufle de Viagem",
+      "imageUrl": "/img/Dufle-de-Viagem.png",
+      "price": 595
+    },
+    {
+      "productId": "4",
+      "name": "Briefcase Executivo",
+      "description": "Briefcase Executivo",
+      "imageUrl": "/img/Briefcase-Executivo.png",
+      "price": 545
+    },
+    {
+      "productId": "5",
+      "name": "Messenger Urbano",
+      "description": "Messenger Urbano",
+      "imageUrl": "/img/Messenger-Urbano.png",
+      "price": 420
+    },
+    {
+      "productId": "6",
+      "name": "Carteira Compacta",
+      "description": "Carteira Compacta",
+      "imageUrl": "/img/Carteira-Compacta.png",
+      "price": 125
+    }
+    
+  ]
+}

@@ -1,0 +1,89 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+
+@import "tailwindcss";
+
+
+@theme {
+
+
+    --color-muted: #F1ECE5;
+    --color-muted-foreground: #7A6F66;
+
+    --color-border: #E6DCCC;
+    --color-input: #EDE4D3;
+    --color-ring: #B3562E;
+
+    --color-destructive: #E54848;
+    --color-destructive-foreground: #F8FAFC;
+
+    --color-leather-caramel: #BF7A3D;
+    --color-leather-brown: #7A4F2F;
+    --color-leather-light: #D6C2A3;
+
+    --color-terracotta: #B3562E;
+    --color-terracotta-soft: #C7744D;
+    --color-gold: #D9B13D;
+    --color-cream: #F7F3EB;
+    --color-warm-gray: #8A8178;
+
+    --color-sidebar-background: #FBFAF7;
+    --color-sidebar-foreground: #4A4036;
+
+    --color-sidebar-primary: #1F1A17;
+    --color-sidebar-primary-foreground: #FBFAF7;
+    --color-sidebar-accent: #F3EEE6;
+    --color-sidebar-accent-foreground: #1F1A17;
+
+    --color-sidebar-border: #EAE1D3;
+    --color-sidebar-ring: #B85E3A;
+
+    --color-background: #1A1512;
+    --color-foreground: #F4F1EB;
+
+    --color-card: #1F1A17;
+    --color-card-foreground: #F4F1EB;
+
+    --color-popover: #1F1A17;
+    --color-popover-foreground: #F4F1EB;
+    --color-primary: #C56A45;
+    --color-primary-foreground: #1F1A17;
+
+    --color-secondary: #2E2620;
+    --color-secondary-foreground: #F4F1EB;
+    --color-muted: #2E2620;
+    --color-muted-foreground: #B8AD9F;
+
+    --color-accent: #C99A3D;
+    --color-accent-foreground: #1F1A17;
+    --color-destructive: #7A2B2B;
+    --color-destructive-foreground: #F8FAFC;
+
+    --color-border: #3A3028;
+    --color-input: #3A3028;
+    --color-ring: #C56A45;
+
+
+    --font-Inter: 'Inter', sans-serif;
+    --font-Cormorant: 'Cormorant Garamond', serif;
+
+}
+
+
+  .animation-float {
+    animation: float 3s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+
+  .scroll-smooth {
+    scroll-behavior: smooth;
+  }
+
+
+html {
+  scroll-behavior: smooth;
+}
