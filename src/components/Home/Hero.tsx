@@ -1,11 +1,12 @@
 
 
-import HeroImg from "../assets/Hero1.png";
+import { Link } from "react-router-dom";
+import HeroImg from "../../assets/Hero1.png";
 
 const Hero = () => {
     return (
         <section id="home" className="relative min-h-screen flex items-center pt-24">
-            {/* Background */}
+           
             <div className="absolute inset-0 z-0">
                 <img
                     src={HeroImg}
@@ -13,11 +14,11 @@ const Hero = () => {
                     className="w-full h-full object-cover"
                 />
 
-                {/* Overlay */}
+                
                 <div className="absolute inset-0 bg-gradient-to-r from-black/75 via-black/45 to-black/20" />
             </div>
 
-            {/* Content */}
+         
 
             <div className="font-Inter relative z-10 max-w-2xl mt-24 md:mt-20 space-y-6 ml-20">
 
@@ -40,23 +41,23 @@ const Hero = () => {
 
 
                 <div className=" flex items-center gap-4">
-                    <a
-                        href="#products"
+                    <Link
+                        to="/products"
                         className="inline-flex items-center justify-center px-6 py-3 
                          rounded-sm bg-accent text-background 
                          font-medium font-Inter text-sm transition hover:bg-transparent hover:text-white hover:border border-white hover:brightness-110 transform hover:scale-105"
                     >
                         Compre agora
-                    </a>
+                    </Link>
 
-                    <a
-                        href="#products"
+                    <Link
+                        to="/contact"
                         className="inline-flex items-center justify-center px-6 py-3 
                          rounded-sm bg-transparent text-white border border-white
                          font-medium font-Inter text-sm transition hover:bg-accent hover:text-accent-foreground hover:border-none hover:brightness-110 transform hover:scale-105"
                     >
                         Entre em Contato
-                    </a>
+                    </Link>
                 </div>
 
 

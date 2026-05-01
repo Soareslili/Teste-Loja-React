@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
 
 
-import { Menu, X, Search, ShoppingBag } from "lucide-react";
-import { useCart } from "../Context/CartContext";
+import { Menu, X, ShoppingBag } from "lucide-react";
+import { useCart } from "../../Context/CartContext";
+import { Link } from "react-router-dom";
 
 
 
@@ -21,10 +22,10 @@ const Header = () => {
     }, []);
 
     const navLinks = [
-        { name: 'Home', href: '#' },
-        { name: 'Produtos', href: '#' },
-        { name: 'Sobre', href: '#' },
-        { name: 'Contato', href: '#' },
+        { name: 'Home', href: '/' },
+        { name: 'Produtos', href: '/products' },
+        { name: 'Sobre', href: '/about' },
+        { name: 'Contato', href: '/contact' },
     ];
 
     return (
@@ -46,41 +47,39 @@ const Header = () => {
         
           <nav className="hidden md:flex items-center gap-8">
             {navLinks.slice(0, 2).map((link) => (
-              <a
+              <Link
                 key={link.name}
-                href={link.href}
+                to={link.href}
                 className="text-small text-background cursor-pointer hover:text-ring transition-colors duration-200 tracking-wide uppercase"
               >
                 {link.name}
-              </a>
+              </Link>
             ))}
           </nav>
 
        
-          <a href="#" className="flex items-center justify-center">
+          <Link to="/" className="flex items-center justify-center">
             <span className="font-serif text-2xl md:text-3xl font-semibold text-background tracking-tight">
             Aura Boutique
             </span>
-          </a>
+          </Link>
 
     
           <nav className="hidden md:flex items-center gap-8">
             {navLinks.slice(2, 4).map((link) => (
-              <a
+              <Link
                 key={link.name}
-                href={link.href}
+                to={link.href}
                 className="text-small text-background cursor-pointer hover:text-ring transition-colors duration-200 tracking-wide uppercase"
               >
                 {link.name}
-              </a>
+              </Link>
             ))}
           </nav>
 
         
           <div className="flex items-center gap-4">
-            <button className="p-2 text-background cursor-pointer hover:text-ring transition-colors">
-              <Search size={20} />
-            </button>
+            
             <button 
               onClick={openCart}
               className="p-2 text-background cursor-pointer hover:text-ring transition-colors relative"
@@ -107,14 +106,14 @@ const Header = () => {
       >
         <nav className="flex flex-col py-4">
           {navLinks.map((link) => (
-            <a
+            <Link
               key={link.name}
-              href={link.href}
+              to={link.href}
               className="px-6 py-3 text-small text-muted-foreground hover:text-foreground hover:bg-muted transition-colors tracking-wide uppercase"
               onClick={() => setIsMobileMenu(false)}
             >
               {link.name}
-            </a>
+            </Link>
           ))}
         </nav>
       </div>

@@ -12,8 +12,7 @@ export interface CartContextType {
   items: CartItem[];
   isCartOpen: boolean;
   isCheckoutOpen: boolean;
-  addItem: (item: Omit<CartItem, "quantity">) => void;
-  removeItem: (id: number) => void;
+  addItem: (item: Omit<CartItem, "quantity">) => void; 
   updateQuantity: (id: number, quantity: number) => void;
   clearCart: () => void;
   openCart: () => void;
@@ -28,10 +27,8 @@ export const CartContext = createContext<CartContextType | undefined>(undefined)
 
 export const useCart = () => {
   const context = useContext(CartContext);
-
   if (!context) {
     throw new Error("useCart must be used within a CartProvider");
   }
-
   return context;
 };

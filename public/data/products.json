@@ -15,37 +15,60 @@
       "productId": "2",
       "name": "Mochila Heritage",
       "description": "Mochila Heritage",
-      "imageUrl": "/img/Mochila-Heritage.png",
+      "imageUrl": "/img/MochilaHeritage.png",
       "price": 485
     },
     {
       "productId": "3",
       "name": "Dufle de Viagem",
       "description": "Dufle de Viagem",
-      "imageUrl": "/img/Dufle-de-Viagem.png",
+      "imageUrl": "/img/Diffle.png",
       "price": 595
     },
     {
       "productId": "4",
       "name": "Briefcase Executivo",
       "description": "Briefcase Executivo",
-      "imageUrl": "/img/Briefcase-Executivo.png",
+      "imageUrl": "/img/Briefcase.png",
       "price": 545
     },
     {
       "productId": "5",
       "name": "Messenger Urbano",
       "description": "Messenger Urbano",
-      "imageUrl": "/img/Messenger-Urbano.png",
+      "imageUrl": "/img/Messenger.png",
       "price": 420
     },
     {
       "productId": "6",
       "name": "Carteira Compacta",
       "description": "Carteira Compacta",
-      "imageUrl": "/img/Carteira-Compacta.png",
+      "imageUrl": "/img/ClassicWallet.png",
       "price": 125
-    }
+    },
+
+    {
+      "productId": "7",
+      "name": "Passport Holder",
+      "description": "Passport Holder",
+      "imageUrl": "/img/PassportHolder.png",
+      "price": 85
+    },
+     {
+      "productId": "8",
+      "name": "Key Holder",
+      "description": "Key Holder",
+      "imageUrl": "/img/KeyHolder.png",
+      "price": 45
+     },
+
+     {
+      "productId": "9",
+      "name": "Laptop Sleeve",
+      "description": "Laptop Sleeve",
+      "imageUrl": "/img/LaptopSleeve.png",
+      "price": 195
+     }
     
   ]
 }

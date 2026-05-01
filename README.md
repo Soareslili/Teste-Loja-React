@@ -1,73 +1,98 @@
-# React + TypeScript + Vite
+#  Aura Boutique
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Loja virtual de bolsas e acessórios de couro, desenvolvida como teste técnico para vaga de Desenvolvedor Front-end.
 
-Currently, two official plugins are available:
+## Sobre o Projeto
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+A Aura Boutique é uma aplicação de e-commerce desenvolvida em React com TypeScript, simulando uma loja virtual completa com listagem de produtos, carrinho de compras e fluxo de checkout.
 
-## React Compiler
+## Tecnologias Utilizadas
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+React — biblioteca para construção da interface
+TypeScript — tipagem estática
+React Router DOM — navegação entre páginas (SPA)
+Tailwind CSS — estilização utilitária
+Lucide React — ícones
+shadcn/ui — componentes de UI (Sheet, Dialog, Button, Input, Label)
+Vite — bundler e servidor de desenvolvimento
 
-## Expanding the ESLint configuration
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Estrutura do Projeto
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+src/
+├── components/
+│   ├── Layout/
+│   │   └── Header.tsx         # Navegação principal com carrinho
+│   ├── Home/
+│   │   └── Hero.tsx           # Seção hero da home
+│   ├── Categories.tsx         # Seção de categorias
+│   ├── About.tsx              # Página sobre
+│   └── ui/                    # Componentes shadcn/ui
+│       ├── Sheet.tsx
+│       ├── dialog.tsx
+│       ├── button.tsx
+│       └── input.tsx
+├── Context/
+│   ├── CartContext.tsx         # Interface e hook do carrinho
+│   └── CartProvider.tsx       # Lógica e estado do carrinho
+├── hooks/
+│   └── use-toast.ts           # Hook de notificações
+├── pages/
+│   └── Footer.tsx             # Rodapé
+├── service/
+│   ├── Products.tsx           # Componente de listagem de produtos
+│   ├── CartSheet.tsx          # Sidebar do carrinho
+│   ├── CheckoutModal.tsx      # Modal de finalização de compra
+│   └── productsService.ts     # Fetch dos produtos do JSON
+├── types/
+│   └── product.ts             # Interface do produto
+├── App.tsx                    # Rotas e estrutura principal
+└── main.tsx                   # Entry point com CartProvider
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+public/
+└── data/
+    └── products.json          # Dados dos produtos
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Funcionalidades
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+✅ Listagem de produtos consumida via fetch de arquivo JSON estático
+✅ Grid responsivo de produtos (1 → 2 → 3 colunas)
+✅ Navegação entre páginas com React Router DOM
+✅ Carrinho de compras global via Context API
+✅ Sidebar do carrinho com controle de quantidade e remoção de itens
+✅ Modal de checkout com formulário de entrega e pagamento
+✅ Contador de itens no Header atualizado em tempo real
+✅ Página de todos os produtos em /products
+✅ Seção de categorias na home
+✅ Design responsivo e animações com Tailwind CSS
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## Arquitetura de Dados
+
+Os produtos são servidos via arquivo estático em public/data/products.json e consumidos pelo productsService.ts:
+
+// service/productsService.ts
+
+export async function getProducts() {
+  const response = await fetch("/data/products.json");
+  const data = await response.json();
+  return data.products;
+}
+
+## Fluxo do Carrinho
+
+Usuário clica em "Adicionar"
+        ↓
+  addItem() → CartContext atualiza estado
+        ↓
+  CartSheet abre automaticamente
+        ↓
+  Usuário clica "Finalizar Compra"
+        ↓
+  CheckoutModal abre com formulário
+        ↓
+  Pedido confirmado → carrinho limpo
+
+  
+
+

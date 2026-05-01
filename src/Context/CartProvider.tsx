@@ -9,7 +9,6 @@ export const CartProvider = ({ children }: { children: React.ReactNode }) => {
   const addItem = useCallback((newItem: Omit<CartItem, "quantity">) => {
     setItems((prevItems) => {
       const existingItem = prevItems.find((item) => item.id === newItem.id);
-
       if (existingItem) {
         return prevItems.map((item) =>
           item.id === newItem.id
@@ -17,9 +16,9 @@ export const CartProvider = ({ children }: { children: React.ReactNode }) => {
             : item
         );
       }
-
       return [...prevItems, { ...newItem, quantity: 1 }];
     });
+    setIsCartOpen(true); 
   }, []);
 
   const removeItem = useCallback((id: number) => {
@@ -32,35 +31,24 @@ export const CartProvider = ({ children }: { children: React.ReactNode }) => {
         removeItem(id);
         return;
       }
-
       setItems((prevItems) =>
-        prevItems.map((item) =>
-          item.id === id ? { ...item, quantity } : item
-        )
+        prevItems.map((item) => (item.id === id ? { ...item, quantity } : item))
       );
     },
     [removeItem]
   );
 
-  const clearCart = useCallback(() => {
-    setItems([]);
-  }, []);
-
+  const clearCart = useCallback(() => setItems([]), []);
   const openCart = useCallback(() => setIsCartOpen(true), []);
   const closeCart = useCallback(() => setIsCartOpen(false), []);
-
   const openCheckout = useCallback(() => {
     setIsCartOpen(false);
     setIsCheckoutOpen(true);
   }, []);
-
   const closeCheckout = useCallback(() => setIsCheckoutOpen(false), []);
 
   const totalItems = items.reduce((sum, item) => sum + item.quantity, 0);
-  const totalPrice = items.reduce(
-    (sum, item) => sum + item.price * item.quantity,
-    0
-  );
+  const totalPrice = items.reduce((sum, item) => sum + item.price * item.quantity, 0);
 
   return (
     <CartContext.Provider
